@@ -1,6 +1,6 @@
 # Real-Estate Online
 
-_Este sistema conecta personas que deseen alquilar su casa (anfitrión) con sus potenciales huéspedes.conectar personas que deseen alquilar su casa (anfitrión) con sus potenciales huéspedes._
+_Este sistema permite conectar personas que deseen alquilar su casa (anfitrión) con sus potenciales huéspedes._
 </br>
 </br>
 
