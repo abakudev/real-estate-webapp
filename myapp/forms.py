@@ -23,8 +23,8 @@ class FilterForm(forms.ModelForm):
     
     pax = forms.ChoiceField(choices=PAX_QUANTITY_CHOICE , label="")
     dateFrom = forms.DateField(label="", input_formats=DATE_INPUT_FORMATS,
-                                widget=DateTimePickerInput(
-                                    format='%Y-%m-%d',options={'minDate':(datetime.datetime.today().strftime("%Y-%m-%d"))}).start_of('event days'))
+                                widget=DateTimePickerInput(format='%Y-%m-%d', 
+                                options={'minDate':(datetime.datetime.today().strftime("%Y-%m-%d"))}).start_of('event days'))
     dateTo = forms.DateField(label="", input_formats=DATE_INPUT_FORMATS,
                                 widget=DateTimePickerInput(format='%Y-%m-%d').end_of('event days') )
 
@@ -36,7 +36,7 @@ class FilterForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['city'].queryset = City.objects.all()
         self.fields['city'].label = ""
-        self.fields['city'].empty_label = 'Ciudad'
+        self.fields['city'].empty_label = 'City'
 
 
 class DetailForm(forms.ModelForm):

@@ -159,11 +159,11 @@ footer{
 }
 
 .logo {
-    padding: 40px;
+    padding: 60px;
 }
 
 .logo > a > img, .gif-not-found {
-    width: 200px;
+    width: 300px;
 }
 
 .not-found-message{

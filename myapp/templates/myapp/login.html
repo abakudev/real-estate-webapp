@@ -18,7 +18,7 @@
         <div class="text-center d-flex align-items-center">
             {% block content %}
             <form class="form-login" method="POST" action="/login/">
-                <img class="mb-4" src="{% static 'myapp/airbnb.png'%}" alt="" width="72" height="72">
+                <img class="mb-4" src="{% static 'myapp/logo-name.png'%}" alt="" width="295" height="110">
                 <h1 class="h3 mb-3 font-weight-normal">Login</h1>
                 {{form|crispy}}
                 {% csrf_token %}

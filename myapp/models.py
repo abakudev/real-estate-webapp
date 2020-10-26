@@ -6,8 +6,6 @@ from django.utils import formats
 from django.utils.translation import gettext as _
 from django.core.validators import MaxValueValidator
 
-
-
 class City (models.Model):
     title = models.CharField(max_length=100)
 
@@ -41,7 +39,7 @@ class Estate (models.Model):
     image = models.ImageField(upload_to=get_image_path,blank=True, null=False)
     city = models.ForeignKey(City,on_delete=models.PROTECT, null=False)
     descripcion = models.TextField(max_length=500)
-    pax = models.PositiveIntegerField(validators=[MaxValueValidator(6)])
+    pax = models.PositiveIntegerField(validators=[MaxValueValidator(7)])
     services = models.ManyToManyField(Service)
 
     class Meta:
