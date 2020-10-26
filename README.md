@@ -6,7 +6,7 @@ _Este sistema conecta personas que deseen alquilar su casa (anfitrión) con sus 
 
 ## Autores ✒️
 
-* **Acuña, Abel** - *Desarrollo* - [Github](https://github.com/villanuevand)
+* **Acuña, Abel** - *Desarrollo* - [Github](https://github.com/abelacu95)
 * **Bacigaluppi, Miguel** - *Desarrollo* - [Github](https://github.com/miguebaci)
 * **Latorre, Guillermina** - *Desarrollo* - [Github](https://github.com/guillerminalatorre)  
 </br>
