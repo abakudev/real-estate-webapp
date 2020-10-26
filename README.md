@@ -6,9 +6,9 @@ _Este sistema conecta personas que deseen alquilar su casa (anfitrión) con sus 
 
 ## Autores ✒️
 
-* **Acuña, Abel** - *Trabajo Inicial* - [Github](https://github.com/villanuevand)
-* **Bacigaluppi, Miguel** - *Trabajo Inicial* - [Github](https://github.com/miguebaci)
-* **Latorre, Guillermina** - *Trabajo Inicial* - [Github](https://github.com/guillerminalatorre)  
+* **Acuña, Abel** - *Desarrollo* - [Github](https://github.com/villanuevand)
+* **Bacigaluppi, Miguel** - *Desarrollo* - [Github](https://github.com/miguebaci)
+* **Latorre, Guillermina** - *Desarrollo* - [Github](https://github.com/guillerminalatorre)  
 </br>
 
 ## Construido con 🛠️
@@ -50,7 +50,7 @@ python manage.py runserver
 
 ## 3. Usuarios
 
-_Usuario utilizado por la empresa para dar de alta anfitriones y ciudades._
+_Usuario utilizado por la empresa para dar de alta anfitriones, ciudades y servicios._
 ```
 user: admin
 pass: admin
