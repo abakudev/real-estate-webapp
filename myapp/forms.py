@@ -12,7 +12,6 @@ from django.core.exceptions import ValidationError
 from bootstrap_datepicker_plus import DateTimePickerInput
 
 
-
 class LoginForm(AuthenticationForm):
     error_messages = {
     'invalid_login': _(
@@ -46,9 +45,22 @@ class DetailForm(forms.ModelForm):
     class Meta:
         model = RentDate
         fields = ['dateFrom']
+        """
+        dateFrom = 'dateFrom'
+        dateTo = 'dateTo'
+        start = datetime.datetime.strptime(date1, '%Y-%m-%d')
+        end = datetime.datetime.strptime(date2, '%Y-%m-%d')
+        step = datetime.timedelta(days=1)
+
+        while start <= end:
+            fields.append(start.date()) 
+            start += step
+            """
+
     
     def __init__(self, estateId, *args, **kwargs):
         super(DetailForm, self).__init__(*args, **kwargs)
+
         self.fields['dateFrom'] = forms.ModelMultipleChoiceField(
             queryset=RentDate.objects.filter(estate__id=estateId, reservation__isnull=True),
             label="Fechas disponibles:",

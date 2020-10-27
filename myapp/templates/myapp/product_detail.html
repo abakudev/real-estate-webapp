@@ -47,7 +47,10 @@
                             {% csrf_token %}
                             <div class="mt-4">
                                 <div class="form-group">
+
                                     {{ form.dateFrom|as_crispy_field }}
+
+
                                 </div>
                                 <div id="price-wrapper" hidden=true>
                                     <div class="border-bottom d-flex justify-content-between  mt-5">

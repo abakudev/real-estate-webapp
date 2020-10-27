@@ -27,8 +27,10 @@
                                     <td>{{rent_per_reservation.0.estate.title}}</td>
                                     <td>{{rent_per_reservation.0.reservation.user}}</td>
                                     <td>{% for rent in rent_per_reservation %}
+
                                         {{rent.dateFrom}} <br>
                                     <td>{{rent.dateTo}}</td>
+                                    
                                         {% endfor %}
                                     </td>
                                     <td>$ {{rent_per_reservation.0.reservation.total}}</td>
