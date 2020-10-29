@@ -1,20 +1,14 @@
-{% load static %}
-{% load crispy_forms_tags %}
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-{{ form.media }}
-{% include "myapp/header.html" %}
+{% load static %} {% load crispy_forms_tags %} {% load bootstrap4 %} {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} {{ form.media }} {% include "myapp/header.html" %}
 
 <div class="bg">
-	<div class="container d-flex justify-content-center align-items-center ">
-		<div class="logo">
-			<a href="/"><img src="{% static 'myapp/logo-name.png'%}" class="img-responsive" alt="My image"></a>
-		</div>
-	</div>
+    <div class="container d-flex justify-content-center align-items-center ">
+        <div class="logo">
+            <a href="/"><img src="{% static 'myapp/logo1-name.png'%}" class="logo-name" alt="My image"></a>
+        </div>
+    </div>
 
     <div class="container d-flex justify-content-center align-items-center ">
-        
+
         <form action="/home/" method="POST">
             {% csrf_token %}
             <div class="card p-5 bg-transparent border-0 ">
