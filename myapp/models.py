@@ -75,6 +75,13 @@ class RentDate(models.Model):
         verbose_name_plural='Fechas de Alquiler'
         ordering=('dateFrom','dateTo','estate')
 
+    def getDates(self):
+        
+        date_format = "%d-%m-%Y"
+        a = datetime.strptime(self.dateFrom, date_format)
+        b = datetime.strptime(self.dateTo, date_format)
+        return b - a
+
     def __str__(self):
-        return  str(self.dateFrom.strftime("%d-%m-%Y"))
+        return  "Del " + str(self.dateFrom.strftime("%d-%m-%Y")) + " hasta " + str(self.dateTo.strftime("%d-%m-%Y"))
 
