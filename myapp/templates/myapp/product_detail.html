@@ -1,88 +1,87 @@
 {% load static %} {% load crispy_forms_tags %} {% include "myapp/header.html" %}
 
 <div class="container">
-    <div class="row pt-5">
+    <div class="row pt-4">
         <div class="col-12 col-lg-8">
-            <div class="card card-detail">
-                <div class="card-body">
+            <div class=" card card-detail " style="margin-bottom: 70px;">
+                <div class="card-body pb-0">
 
 
                     {% if estate.image %}
-                    <img class="card-img-top card-img-bottom" src="{{ estate.image.url }}" alt="Card image cap"> {% else %}
-                    <img class="card-img-top card-img-bottom" src="/photos/no-image.jpg" alt="Card image cap"> {% endif %}
+                    <img class=" card-img-bottom " src="{{ estate.image.url }} " alt="Card image cap "> {% else %}
+                    <img class="card-img-bottom " src="{% static 'myapp\no-image.png'%}" alt="Card image cap "> {% endif %}
 
 
-                    <h2 class="card-title title-item mt-3">{{estate.title}}</h2>
-                    <p class="text-secondary">{{estate.city.title}}</p>
-                    <h6 class="card-subtitle mb-2 text-muted">Hospedado por Alojamiento <span class="text-secondary ml-4">Cantidad máxima de personas: {{estate.pax}}</span>
+                    <h2 class="card-title title-item mt-2 mb-2 ">{{estate.title}}</h2>
+                    <p class="text-secondary mb-2 ">{{estate.city.title}}</p>
+                    <h6 class="card-subtitle mb-2 text-muted ">Hospedado por Alojamiento <span class="text-secondary ml-4 ">Cantidad máxima de personas: {{estate.pax}}</span>
                     </h6>
-                    <p class="card-text">{{estate.descripcion}}</p>
-                    <div class="border-top pt-3">
+                    <p class="card-text ">{{estate.descripcion}}</p>
+                    <div class="border-top pt-2 ">
                         <h6>Servicios</h6>
-                        <div class="row">
+                        <div class="row ">
                             {% for s in services %}
                             <div class="col-6">
                                 {% if s.iconClass %}
                                     {{ s.iconClass.as_html }}
                                     {{ s.name }}
                                 {% endif %}
-                                
                             </div>
                             {% endfor %}
-                            <input id="dailyRate" value={{ estate.dailyRate }} hidden=true>
+                            <input id="dailyRate" value="{{estate.dailyRate}}" hidden=true>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="border-bottom pb-3">
-                        <h5 class="card-title">Precio por dia $ {{estate.dailyRate}}</h5>
+        <div class="col-12 col-lg-4 ">
+            <div class="card ">
+                <div class="card-body " style="height: 80%; ">
+                    <div class="border-bottom pb-3 ">
+                        <h5 class="card-title" id="dailyRate " value="{{estate.dailyRate}}">Precio por dia $ {{estate.dailyRate}}</h5>
                     </div>
-                    <form method="POST" action="/thanks/{{estate.id}}/">
+                    <form method="POST" action="/thanks/{{estate.id}}/ ">
                         {% csrf_token %}
-                        <div class="mt-4">
-                            <div class="form-group">
+                        <div class="mt-4 ">
+                            <div class="form-group ">
 
                                 {{ form.dateFrom|as_crispy_field }}
 
 
                             </div>
                             <div id="price-wrapper" hidden=true>
-                                <div class="border-bottom d-flex justify-content-between  mt-5">
+                                <div class="border-bottom d-flex justify-content-between mt-5 ">
                                     <div>
-                                        <p class="text-muted" id="q-nights">{{estate.dailyRate}} x 0 noches</p>
+                                        <p class="text-muted " id="q-nights ">{{estate.dailyRate}} x 0 noches</p>
                                     </div>
                                     <div>
-                                        <p class="text-muted" id="subtotal">$0</p>
-                                    </div>
-                                </div>
-                                <div class="border-bottom d-flex justify-content-between mt-2">
-                                    <div>
-                                        <p class="text-muted">Comision por servicio</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-muted" id="commission">8% = $0 </p>
+                                        <p class="text-muted " id="subtotal ">$0</p>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between  mt-2">
+                                <div class="border-bottom d-flex justify-content-between mt-2 ">
                                     <div>
-                                        <p class="">Total</p>
+                                        <p class="text-muted ">Comision por servicio</p>
                                     </div>
                                     <div>
-                                        <p class="" id="total">$0</p>
+                                        <p class="text-muted " id="commission ">8% = $0 </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2 ">
+                                    <div>
+                                        <p class=" ">Total</p>
+                                    </div>
+                                    <div>
+                                        <p class=" " id="total ">$0</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="border-bottom d-flex form-group justify-content-between">
+                            <div class="border-bottom d-flex form-group justify-content-between ">
                                 {{ form.user|as_crispy_field }}
                             </div>
-                            <div class="border-bottom d-flex form-group justify-content-between">
+                            <div class="border-bottom d-flex form-group justify-content-between ">
                                 {{ form.email|as_crispy_field }}
                             </div>
-                            <button class="mt-3 btn btn-md btn-color btn-block" type="submit" id="reserve-btn" disabled>Reservar</button>
+                            <button class="mt-3 btn btn-md btn-color btn-block " type="submit " id="reserve-btn" disabled>Reservar</button>
                         </div>
 
                     </form>
@@ -145,4 +144,4 @@
 </script>
 
 
-{% include "myapp/footer.html" %}
+{% include "myapp/footer.html " %}
