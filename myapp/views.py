@@ -80,7 +80,7 @@ def detail(request, id=0):
     form = DetailForm(id)
     if request.method == "GET":
         estate = Estate.objects.get(id=id)
-        services = Service.objects.filter(estate=id)
+        services = Service.objects.filter(estate=id) 
         return render(request,'myapp/product_detail.html', {'estate':estate, 'form':form, 'services':services,})  
     return redirect('/')
 
@@ -92,8 +92,7 @@ def thanks(request, id=0):
         prop = Estate.objects.get(id=id)
         cod = datetime.today().strftime('%y-%m-%d-%H-%M-%S') + "-" + str(id) + "-" + str(prop.owner.id)
         getcontext().prec = 10
-        #total = (prop.dailyRate * form['dateFrom'].value().__len__()) * Decimal(1.08)
-        total = getDate(id)
+        total = (prop.dailyRate * form['dateFrom'].value().__len__()) * Decimal(1.08)
         user = form['user'].value()
         email = form['email'].value()
         city = prop.city.title
@@ -123,7 +122,7 @@ def thanks(request, id=0):
         msg = EmailMultiAlternatives(subject, html_content, EMAIL_FROM, to=[email,])
         msg.content_subtype = 'html'
         msg.mixed_subtype = 'related'
-        #msg.send()
+        msg.send()
         return render(request,'myapp/thanks.html', {'form':form, 'estate':prop, 'reservation':r, 'dates':finalDates, 'total':round(r.total, 2)},)  
     return redirect('/')
 
