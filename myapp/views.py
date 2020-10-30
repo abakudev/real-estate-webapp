@@ -92,8 +92,8 @@ def thanks(request, id=0):
         prop = Estate.objects.get(id=id)
         cod = datetime.today().strftime('%y-%m-%d-%H-%M-%S') + "-" + str(id) + "-" + str(prop.owner.id)
         getcontext().prec = 10
-        total = (prop.dailyRate * form['dateFrom'].value().__len__()) * Decimal(1.08)
-        #total = getDate(id)
+        #total = (prop.dailyRate * form['dateFrom'].value().__len__()) * Decimal(1.08)
+        total = getDate(id)
         user = form['user'].value()
         email = form['email'].value()
         city = prop.city.title
