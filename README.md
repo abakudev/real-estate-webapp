@@ -59,7 +59,7 @@ pass: admin
 _Usuario anfitriones._
 ```
 user: abel
-pass: abel
+pass: abel1234
 ```
 ```
 user: micho 

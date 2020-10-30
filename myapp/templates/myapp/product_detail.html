@@ -21,9 +21,11 @@
                         <h6>Servicios</h6>
                         <div class="row ">
                             {% for s in services %}
-                            <div class="col-6 ">
-                                <p class="text-muted small "><i class="{{s.iconClass}} " aria-hidden="true "></i> {{s.name}}
-                                </p>
+                            <div class="col-6">
+                                {% if s.iconClass %}
+                                    {{ s.iconClass.as_html }}
+                                    {{ s.name }}
+                                {% endif %}
                             </div>
                             {% endfor %}
                             <input id="dailyRate" value="{{estate.dailyRate}}" hidden=true>
