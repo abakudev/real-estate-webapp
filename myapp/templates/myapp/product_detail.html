@@ -94,48 +94,51 @@
     let Difference_In_Days = 0;
     let dailyRate = document.getElementById("dailyRate").value;
     let wrapper = document.getElementById("price-wrapper");
-    let button = document.getElementById("reserve-btn")
-    let total = document.getElementById("total")
-    let subtotal = document.getElementById("subtotal")
-    let commission = document.getElementById("commission")
-    let nights = document.getElementById("q-nights")
+    let button = document.getElementById("reserve-btn");
+    let total = document.getElementById("total");
+    let subtotal = document.getElementById("subtotal");
+    let commission = document.getElementById("commission");
+    let nights = document.getElementById("q-nights");
 
-    document.getElementById("id_dateFrom").addEventListener('change', function(e) {
+    document
+        .getElementById("id_dateFrom")
+        .addEventListener("change", function(e) {
+            Difference_In_Days = 0;
 
-        //var e = document.getElementById("tempId");
-        //var strUser = e.options[e.selectedIndex].value;
+            const formatDate = (dateString) => {
+                day = dateString.slice(0, 2);
+                month = dateString.slice(3, 5);
+                year = dateString.slice(6, 10);
+                return `${year}/${month}/${day}`;
+            };
 
-        const formatDate = (dateString) => {
-            day = dateString.slice(0, 2);
-            month = dateString.slice(3, 5);
-            year = dateString.slice(6, 10);
-            return `${year}/${month}/${day}`
-        }
+            for (var i = 0; i < op.length; i++) {
+                if (op[i].selected) {
+                    let date1 = new Date(formatDate(op[i].innerHTML.slice(4, 14)));
+                    let date2 = new Date(formatDate(op[i].innerHTML.slice(21)));
 
-        let date1 = new Date(formatDate(op[op.selectedIndex].innerHTML.slice(4, 14)));
-        let date2 = new Date(formatDate(op[op.selectedIndex].innerHTML.slice(21)));
+                    // To calculate the time difference of two dates
+                    Difference_In_Time = date2.getTime() - date1.getTime();
 
+                    // To calculate the no. of days between two dates
+                    Difference_In_Days += Difference_In_Time / (1000 * 3600 * 24);
+                }
+            }
 
-        // To calculate the time difference of two dates 
-        let Difference_In_Time = date2.getTime() - date1.getTime();
-
-        // To calculate the no. of days between two dates 
-        Difference_In_Days += Difference_In_Time / (1000 * 3600 * 24);
-
-        if (Difference_In_Days === 0) {
-            wrapper.hidden = true
-            button.disabled = true
-        } else {
-            subt = (dailyRate * Difference_In_Days)
-            com = Math.round((subt * 0.08) * 100) / 100
-            wrapper.hidden = false
-            button.disabled = false
-            nights.innerHTML = dailyRate + " x " + Difference_In_Days + " noches"
-            subtotal.innerHTML = "$" + subt
-            commission.innerHTML = "8% = $" + com
-            total.innerHTML = "$" + (subt + com)
-        }
-    });
+            if (Difference_In_Days === 0) {
+                wrapper.hidden = true;
+                button.disabled = true;
+            } else {
+                subt = dailyRate * Difference_In_Days;
+                com = Math.round(subt * 0.08 * 100) / 100;
+                wrapper.hidden = false;
+                button.disabled = false;
+                nights.innerHTML = dailyRate + " x " + Difference_In_Days + " noches";
+                subtotal.innerHTML = "$" + subt;
+                commission.innerHTML = "8% = $" + com;
+                total.innerHTML = "$" + (subt + com);
+            }
+        });
 </script>
 
 
