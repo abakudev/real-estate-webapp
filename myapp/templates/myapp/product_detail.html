@@ -26,7 +26,7 @@
                                 </p>
                             </div>
                             {% endfor %}
-                            <input id="dailyRate " value={{ estate.dailyRate }} hidden=true>
+                            <input id="dailyRate" value="{{estate.dailyRate}}" hidden=true>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
             <div class="card ">
                 <div class="card-body " style="height: 80%; ">
                     <div class="border-bottom pb-3 ">
-                        <h5 class="card-title ">Precio por dia $ {{estate.dailyRate}}</h5>
+                        <h5 class="card-title" id="dailyRate " value="{{estate.dailyRate}}">Precio por dia $ {{estate.dailyRate}}</h5>
                     </div>
                     <form method="POST" action="/thanks/{{estate.id}}/ ">
                         {% csrf_token %}
@@ -47,7 +47,7 @@
 
 
                             </div>
-                            <div id="price-wrapper " hidden=true>
+                            <div id="price-wrapper" hidden=true>
                                 <div class="border-bottom d-flex justify-content-between mt-5 ">
                                     <div>
                                         <p class="text-muted " id="q-nights ">{{estate.dailyRate}} x 0 noches</p>
@@ -79,7 +79,7 @@
                             <div class="border-bottom d-flex form-group justify-content-between ">
                                 {{ form.email|as_crispy_field }}
                             </div>
-                            <button class="mt-3 btn btn-md btn-color btn-block " type="submit " id="reserve-btn " disabled>Reservar</button>
+                            <button class="mt-3 btn btn-md btn-color btn-block " type="submit " id="reserve-btn" disabled>Reservar</button>
                         </div>
 
                     </form>
