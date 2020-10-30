@@ -1,38 +1,40 @@
 {% load static %} {% load crispy_forms_tags %} {% load bootstrap4 %} {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} {{ form.media }} {% include "myapp/header.html" %}
 
 <div class="bg">
-    <div class="container d-flex justify-content-center align-items-center ">
-        <div class="logo">
-            <a href="/"><img src="{% static 'myapp/logo1-name.png'%}" class="logo-name" alt="My image"></a>
-        </div>
-    </div>
-
-    <div class="container d-flex justify-content-center align-items-center ">
-
-        <form action="/home/" method="POST">
-            {% csrf_token %}
-            <div class="card p-5 bg-transparent border-0 ">
-
-                <div class="form-row">
-                    <div class="form-group col-md-3 mb-2">
-                        {{ form.city|as_crispy_field }}
-                    </div>
-                    <div class="form-group col-md-3 mb-2">
-                        {{ form.pax|as_crispy_field }}
-                    </div>
-                    <div class="form-group col-md-3 mb-2">
-                        {{ form.dateFrom|as_crispy_field }}
-                    </div>
-                    <div class="form-group col-md-3 mb-2">
-                        {{ form.dateTo|as_crispy_field }}
-                    </div>
-
-                </div>
-                {{ form|as_crispy_errors }}
-                <br>
-                <button type="submit" class="btn btn btn-success ">Search</button!>
+    <div class="container justify-content-center align-items-center" style="background-color: rgba(255, 255, 255, 0.767); margin-top: 4%; padding:0%; width:55%; border-radius: 30px;">
+        <div class="container d-flex justify-content-center align-items-center mr-0 ml-0 pr-0 pl-0">
+            <div class="logo mr-0 ml-0">
+                <a href="/"><img src="{% static 'myapp/logo1-name.png'%}" class="logo-name mr-0 ml-0" alt="My image"></a>
             </div>
-        </form>
+        </div>
+
+        <div class="container d-flex justify-content-center align-items-center mr-0 ml-0 pr-0 pl-0">
+
+            <form action="/home/" method="POST">
+                {% csrf_token %}
+                <div class="card pt-5 pr-5 pl-5 pb-3 mr-0 ml-0 bg-transparent border-0 ">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-3 mb-2">
+                            {{ form.city|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-2">
+                            {{ form.pax|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-2">
+                            {{ form.dateFrom|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-2">
+                            {{ form.dateTo|as_crispy_field }}
+                        </div>
+
+                    </div>
+                    {{ form|as_crispy_errors }}
+                    <br>
+                    <button type="submit" class="btn btn btn-color-search ">Search</button!>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
