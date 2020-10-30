@@ -25,8 +25,9 @@
                                 {% if s.iconClass %}
                                     {{ s.iconClass.as_html }}
                                     {{ s.name }}
+                                {% elif s.iconClass %}
+                                    {{ s.name }}
                                 {% endif %}
-                                
                             </div>
                             {% endfor %}
                             <input id="dailyRate" value={{ estate.dailyRate }} hidden=true>
