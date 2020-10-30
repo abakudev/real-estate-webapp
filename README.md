@@ -20,7 +20,9 @@ _Este sistema permite conectar personas que deseen alquilar su casa (anfitrión)
 
 ## Link del repositorio 
 
-* https://github.com/abelacu95/real-estate-webapp
+https://github.com/abelacu95/real-estate-webapp
+</br>
+</br>
 
 ## 1. Clonar repositorio de Github 📋
 
