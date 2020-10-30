@@ -63,7 +63,7 @@ pass: abel
 ```
 ```
 user: micho 
-pass: micho
+pass: M987654b
 ```
 ```
 user: guille

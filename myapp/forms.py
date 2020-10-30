@@ -37,25 +37,13 @@ class FilterForm(forms.ModelForm):
         self.fields['city'].label = ""
         self.fields['city'].empty_label = 'City'
 
-
 class DetailForm(forms.ModelForm):
     user = forms.CharField(label="", max_length=30, help_text="Ingrese su nombre")
     email = forms.EmailField(label="", help_text="Ingrese su e-mail")
 
     class Meta:
         model = RentDate
-        fields = ['dateFrom']
-        """
-        dateFrom = 'dateFrom'
-        dateTo = 'dateTo'
-        start = datetime.datetime.strptime(date1, '%Y-%m-%d')
-        end = datetime.datetime.strptime(date2, '%Y-%m-%d')
-        step = datetime.timedelta(days=1)
-
-        while start <= end:
-            fields.append(start.date()) 
-            start += step
-            """
+        fields = ['dateFrom', 'dateTo']
 
     
     def __init__(self, estateId, *args, **kwargs):
@@ -64,9 +52,9 @@ class DetailForm(forms.ModelForm):
         self.fields['dateFrom'] = forms.ModelMultipleChoiceField(
             queryset=RentDate.objects.filter(estate__id=estateId, reservation__isnull=True),
             label="Fechas disponibles:",
-            help_text="Seleccione las fechas a reservar: CTRL+Click",
+            help_text="Para reservar multiples fechas seleccione las fechas a reservar con: CTRL+Click",
         )
-        
+              
 
     
 
